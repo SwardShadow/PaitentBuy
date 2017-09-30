@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PatientBuy</title>
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+    <!-- 引入主要样式 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!--头部开始  -->
+    <section id="header">
+        <a href="javascript:void(0)" class="left logo">
+            <img src="images/header_logo.png" alt="logo"/>
+        </a>
+        <a href="javascript:void(0)">
+            <img src="images/header_app.png" alt="app"/>
+        </a>
+    </section>
+    <!-- 头部结束 -->
+    <!-- 搜索部分开始 -->
+    <section id="search">
+        <form action="#">
+            <input type="search" placeholder="请输入您要搜索的商品名称" />
+            <input type="submit" value="搜索" />
+        </form>
+    </section>
+    <!-- 搜索部分结束 -->
+    <!-- 菜单部分开始 -->
+    <div class="menu">
+        <div class="row">
+            <!-- 这个是坑 -->
+        </div>
+    </div>
+    <!-- 菜单部分结束 -->
+    <section id="recommend">
+        <div class="recommend-title">
+            <span class="left">更多优惠信息</span>
+            <a href="javascript:void(0)" class="right">
+                <img src="http://www.zuyushop.com/wap/images/more.png" alt="更多"/>
+            </a>
+        </div>
+        <div class="recommend-list">
+            <!-- 动态获取 -->
+        </div>
+        <div class="recommend-more">
+            <a href="javascript:void(0)">更多优惠信息</a>
+        </div>
+        <div class="recommend-title">
+            <span class="left">品牌排行</span>
+            <a href="javascript:void(0)">
+                <img src="http://www.zuyushop.com/wap/images/more.png" alt="品牌排行"/>
+            </a>
+        </div>
+    </section>
+    <!-- 推荐部分结束 -->
+    <!-- 底部开始 -->
+    <section id="footer">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="javascript:void(0)">登录</a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0)">注册</a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0)">返回顶部</a>
+            </div>
+        </div>
+        <p>
+            <a href="javascript:void(0)">手机app下载</a>
+            <a href="javascript:void(0)">慢慢买手机版</a>
+            <a href="javascript:void(0)">掌上比价平台</a>
+        </p>
+        <p></p>
+    </section>
+    <!-- 底部结束 -->
+    <!-- 使用handlebars模版 -->
+    <script type="text/html" id="recommendTpl">
+        {{#each result}}
+        <div class="media">
+            <div class="media-left">
+                <a href="javascript:v oid(0)">
+                    {{productImgSm}}
+                </a>
+            </div>
+            <div calss="mdeia-body">
+                <h4 class="">{{productName}}</h4>
+                <p class="red">
+                    {{productPinkage}}
+                </p>
+                <span class="left">
+                    {{productForm}}{{productTime}}
+                </span>
+                <span class="right">
+                    {{productComCount}}
+                </span>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!-- 使用template.js模版 -->
+    <script type="text/html" id="recommendTpl">
+        {{each result as item i}}
+        <div class="media">
+            <div class="media-left">
+                <a href="javascript:void(0)">{{#item.productImgSm}}</a>
+            </div>
+            <div class="media-body">
+                <h4 class="">
+                    {{item.productName}}
+                </h4>
+                <p class="red">
+                    {{item.productPinkage}}
+                </p>
+                <span class="left">
+                    {{item.productTime}}
+                </span>
+                <span class="right">
+                    {{item.productComCount}}
+                </span>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/url.js"></script>
+    <script src="js/handlebars-1.0.0.beta.6.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
